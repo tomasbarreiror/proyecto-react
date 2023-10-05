@@ -566,12 +566,9 @@ export const getProducts = () => {
 
 export const getProductById = (productId) => {
     return new Promise((resolve) => {
-        const product = products.find((prod) => prod.id === productId);
-        if (product) {
-            resolve([product])
-        } else {
-            resolve([])
-        }
+        setTimeout(() => {
+            resolve(products.find(prod => prod.id === productId))
+        })
     })
 }
 
