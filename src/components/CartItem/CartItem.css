@@ -1,0 +1,23 @@
+.cart-product {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.cart-product h2 {
+    font-size: 16px;
+    text-align: center;
+}
+
+.cart-product img {
+    width: 250px;
+}
+
+.cart-remove {
+    background-color: red;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}

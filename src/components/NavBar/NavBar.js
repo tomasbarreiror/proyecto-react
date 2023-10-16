@@ -1,35 +1,58 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import CartWidget from "../CartWidget/CartWidget";
-import './NavBar.css';
 import logo from './assets/logo.png';
+import './NavBar.css';
 
 const NavBar = () => {
+
+    const [dropdown, setDropdown] = useState(false)
+
+    const toggleDropdown = () => {
+        setDropdown(!dropdown)
+    }
+
+    const [hamburguerMenu, setHamburguerMenu] = useState(true)
+
+    const toggleHamburguerMenu = () => {
+        setHamburguerMenu(!hamburguerMenu)
+    }
+
     return (
         <nav>
-            <div className="columns">
-                <div className="column">
-                    <Link to='/'>
-                        <img src={logo} alt="logo" className="logo"/>
-                    </Link>
+            <div>
+                <Link to='/'>
+                    <img src={logo} alt="logo" className="logo"/>
+                </Link>
+            </div>
+            <div className={`menu ${hamburguerMenu ? 'mobile-menu' : ''}`}>
+                <div className="categories-dropdown" onClick={toggleDropdown}>
+                    <p className="nav-btn">Categorias</p>
+                    {dropdown && (
+                        <span className="categories">
+                            <Link className="nav-btn" to={"/category/procesador-amd"}>Procesadores AMD</Link>
+                            <Link className="nav-btn" to={"/category/procesador-intel"}>Procesadores Intel</Link>
+                            <Link className="nav-btn" to={"/category/mother-amd"}>Mothers AMD</Link>
+                            <Link className="nav-btn" to={"/category/mother-intel"}>Mothers Intel</Link>
+                            <Link className="nav-btn" to={"/category/mouse"}>Mouse</Link>
+                            <Link className="nav-btn" to={"/category/teclado"}>Teclado</Link>
+                            <Link className="nav-btn" to={"/category/auriculares"}>Auriculares</Link>
+                            <Link className="nav-btn" to={"/category/pad"}>Mousepad</Link>
+                            <Link className="nav-btn" to={"/category/notebook"}>Notebooks</Link>
+                            <Link className="nav-btn" to={"/category/placas"}>Placas de Video</Link>
+                            <Link className="nav-btn" to={"/category/cam-mic"}>Camaras y Microfonos</Link>
+                        </span>
+                    )}
                 </div>
-                <div className="column">
-                    <div>
-                        <Link to={"/category/notebook"} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Notebooks</Link>
-                        <Link to={"/category/procesador-amd"} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Procesadores AMD</Link>
-                        <Link to={"/category/procesador-intel"} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Procesadores Intel</Link>
-                        <Link to={"/category/mother-amd"} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Mothers AMD</Link>
-                        <Link to={"/category/mother-intel"} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Mothers Intel</Link>
-                        <Link to={"/category/placas"} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Placas de Video</Link>
-                        <Link to={"/category/mouse"} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Mouse</Link>
-                        <Link to={"/category/teclado"} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Teclado</Link>
-                        <Link to={"/category/auriculares"} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Auriculares</Link>
-                        <Link to={"/category/pad"} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Mousepad</Link>
-                        <Link to={"/category/cam-mic"} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Camaras y Microfonos</Link>
-                    </div>
+                <div className="build-pc">
+                    <Link className="nav-btn" to={"/arma-tu-pc"}>Armar tu PC</Link>
                 </div>
-                <div className="column">
+                <div>
                     <CartWidget/>
                 </div>
+            </div>
+            <div className="mobile-menu-icon" onClick={toggleHamburguerMenu}>
+                <button className="hamburguer-icon"/>
             </div>
         </nav>
     )

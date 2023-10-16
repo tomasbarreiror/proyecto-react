@@ -1,0 +1,38 @@
+.item-detail {
+    display: grid;
+    grid-template-areas: 
+    "grid1 grid2"
+    "grid3 grid3";
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid1 {
+    grid-area: grid1;
+}
+
+.grid1 h2 {
+    font-size: 16px;
+    text-align: center;
+}
+
+.grid1 img {
+    width: 250px;
+}
+
+.grid2 {
+    grid-area: grid2;
+}
+
+.grid3 {
+    grid-area: grid3;
+}
+
+.checkout {
+    padding: 1rem;
+    background-color: grey;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}

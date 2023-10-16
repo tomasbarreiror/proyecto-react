@@ -1,0 +1,41 @@
+footer {
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    bottom: 0;
+}
+
+footer div p {
+    text-align: center;
+}
+
+
+.social-media {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 10px;
+}
+
+
+.social-media a {
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.linkedin {
+    background-image: url(./assets/linkedin.svg);
+}
+
+.github {
+    background-image: url(./assets/github.svg);
+}
+
+.youtube {
+    background-image: url(./assets/youtube.svg);
+}

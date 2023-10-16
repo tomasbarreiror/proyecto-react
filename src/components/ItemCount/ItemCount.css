@@ -1,0 +1,18 @@
+.item-count {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.item-count button {
+    border: none;
+    padding: 1rem;
+    background-color: gray;
+    border-radius: 5px;
+    color: white;
+}
+
+.item-count p {
+    font-size: 22px;
+}
