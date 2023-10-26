@@ -1,8 +1,9 @@
 import { initializeApp } from "firebase/app"
-import { getFirestore } from "firebase/firestore" 
+import { getFirestore } from "firebase/firestore"
+import { getAuth, GoogleAuthProvider } from "firebase/auth"
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDc5fX7vyWYIycbxCEARIsA-HJCnAd9OTc",
+    apiKey: process.env.REACT_APP_APY_KEY,
     authDomain: "proyecto-react-23214.firebaseapp.com",
     projectId: "proyecto-react-23214",
     storageBucket: "proyecto-react-23214.appspot.com",
@@ -14,3 +15,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 
 export const db = getFirestore(app)
+
+export const auth = getAuth(app)
+export const googleProvider = new GoogleAuthProvider()

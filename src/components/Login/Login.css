@@ -1,0 +1,108 @@
+#login {
+  flex: 1;
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error {
+  background-color: rgb(226, 141, 141);
+  border-radius: .5rem;
+}
+
+.login-container {
+  max-width: 24rem;
+  border: 1px solid;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  border-color: #e2e8f0;
+}
+
+.login-text-container h1 {
+  margin: 0.5rem auto;
+  text-align: center;
+  font-weight: 700;
+}
+
+.login-text-container p {
+  color: #718096;
+}
+
+.login-options {
+  margin: 1rem auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-with-email, .login-with-complete {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-with-email label {
+  margin: .5rem auto;
+  text-align: center;
+}
+
+.login-with-email input {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #4a5568;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #cbd5e0;
+  border-radius: 0.25rem;
+}
+
+span {
+  display: block;
+  color: #718096;
+  font-size: 0.875rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.login-button {
+  width: 100%;
+  margin: .5rem auto;
+  padding: .5rem;
+  color: #ffffff;
+  border: 1px solid;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: 200ms opacity;
+}
+
+.bg-blue {
+  background-color: rgb(0, 132, 255);
+}
+
+.login-button:hover {
+  opacity: .8;
+}
+
+.submit {
+  display: block;
+  margin: .5rem auto;
+  padding: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 1rem;
+  background-color: #5a5a5a;
+  color: white;
+  transition: 200ms opacity;
+}
+
+.submit:hover {
+  opacity: .8;
+}

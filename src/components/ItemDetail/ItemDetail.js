@@ -1,13 +1,18 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useCart } from '../../context/CartContext'
+import { useAuth } from "../../context/AuthContext";
+import { doc, setDoc } from "firebase/firestore";
 import ItemCount from "../ItemCount/ItemCount";
-import { Link } from "react-router-dom";
-import { CartContext } from '../../context/CartContext'
+import { db } from "../../config/Firebase";
 import "./ItemDetail.css"
 
 const ItemDetail = ({id, nombre, precio, stock, img, categoria}) => {
+    
     const [quantityAdded, setQuantityAdded] = useState(0)
-
-    const { addItem } = useContext(CartContext)
+    const { addItem, cart } = useCart()
+    const { user } = useAuth()
+    const navigate = useNavigate()
 
     const handleOnAdd = (quantity) => {
         setQuantityAdded(quantity)
@@ -16,7 +21,25 @@ const ItemDetail = ({id, nombre, precio, stock, img, categoria}) => {
             id, nombre, precio, img
         }
 
-        addItem(item, quantity)
+        if (user) {
+            const updatedCart = [...cart]
+            saveCartToUser(updatedCart).then(() => {
+                addItem(item, quantity)
+            })
+        } else {
+            navigate('/login')
+        }
+    }
+
+    const saveCartToUser = async (cartData) => {
+        const userId = user.uid
+        const cartRef = doc(db, "users", userId)
+        try {
+            await setDoc(cartRef, { cart: cartData }, { merge: true })
+        } catch(error) {
+            console.error("Error al guardar el carrito:", error)
+            throw error
+        }
     }
 
     return (

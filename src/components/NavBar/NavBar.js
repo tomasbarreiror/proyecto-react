@@ -1,21 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "../../context/AuthContext";
 import CartWidget from "../CartWidget/CartWidget";
 import logo from './assets/logo.png';
 import './NavBar.css';
+import { useCart } from "../../context/CartContext";
 
 const NavBar = () => {
 
+    const { user, handleLogout} = useAuth()
+    const { setCart } = useCart()
+    const navigate = useNavigate()
+
     const [dropdown, setDropdown] = useState(false)
+    const [hamburguerMenu, setHamburguerMenu] = useState(true)
 
     const toggleDropdown = () => {
         setDropdown(!dropdown)
     }
 
-    const [hamburguerMenu, setHamburguerMenu] = useState(true)
-
     const toggleHamburguerMenu = () => {
         setHamburguerMenu(!hamburguerMenu)
+    }
+
+    const logoutAndRedirect = () => {
+        handleLogout()
+        setCart([])
+        navigate('/login')
     }
 
     return (
@@ -45,7 +56,14 @@ const NavBar = () => {
                     )}
                 </div>
                 <div className="build-pc">
-                    <Link className="nav-btn" to={"/arma-tu-pc"}>Armar tu PC</Link>
+                    <Link className="nav-btn" to={"/build-pc"}>Armar tu PC</Link>
+                </div>
+                <div className="login">
+                    { user ? (
+                        <button className="nav-btn" onClick={logoutAndRedirect}>Cerrar sesion</button>
+                    ) : (
+                        <Link to='/login' className="nav-btn">Iniciar Sesion</Link>
+                    )}
                 </div>
                 <div>
                     <CartWidget/>
