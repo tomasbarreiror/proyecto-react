@@ -70,18 +70,25 @@ const Checkout = () => {
     }
 
     if(loading) {
-        return <div className="lds-dual-ring"></div>
+        return (
+            <section id="checkout">
+                <div className="lds-dual-ring"></div>
+            </section>
+        )
     }
 
     if(orderId) {
-        return <h1>El id de tu orden es: {orderId}</h1>
+        return (
+            <section id="checkout">
+                <h1>El id de tu orden es: {orderId}</h1>
+            </section>
+        )
     }
 
     return (
-        <div>
-            <h1>Checkout</h1>
+        <section id="checkout">
             <CheckoutForm onConfirm={createOrder} />
-        </div>
+        </section>
     )
 }
 

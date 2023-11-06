@@ -10,7 +10,6 @@ import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout'
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
-import BuildPc from './components/BuildPc/BuildPc';
 import Footer from './components/Footer/Footer';
 
 function App() {
@@ -29,7 +28,6 @@ function App() {
                             <Route path='*' element={<h1 style={{flex: "1", textAlign:"center"}}>404 not found</h1>}/>
                             <Route path='/login' element={<Login/>}/>
                             <Route path='/register' element={<Register/>}/>
-                            <Route path='/build-pc' element={<BuildPc/>} />
                         </Routes>
                         <Footer/>
                     </CartProvider>

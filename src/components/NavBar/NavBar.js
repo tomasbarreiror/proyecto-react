@@ -52,11 +52,10 @@ const NavBar = () => {
                             <Link className="nav-btn" to={"/category/notebook"}>Notebooks</Link>
                             <Link className="nav-btn" to={"/category/placas"}>Placas de Video</Link>
                             <Link className="nav-btn" to={"/category/cam-mic"}>Camaras y Microfonos</Link>
+                            <Link className="nav-btn" to={"/category/ram"}>Ram</Link>
+                            <Link className="nav-btn" to={"/category/gabinete"}>Gabinete</Link>
                         </span>
                     )}
-                </div>
-                <div className="build-pc">
-                    <Link className="nav-btn" to={"/build-pc"}>Armar tu PC</Link>
                 </div>
                 <div className="login">
                     { user ? (

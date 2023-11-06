@@ -17,19 +17,22 @@ const CheckoutForm = ({ onConfirm }) => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleConfirm}>
-                <label htmlFor="name">Nombre</label>
-                <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)}/>
+        <div className="form-container">
+            <h1>Checkout</h1>
+            <div className="checkout-form-container">
+                <form onSubmit={handleConfirm}>
+                    <label htmlFor="name">Nombre</label>
+                    <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)}/>
 
-                <label htmlFor="phone">Telefono</label>
-                <input type="tel" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)}/>
+                    <label htmlFor="phone">Telefono</label>
+                    <input type="tel" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)}/>
 
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <label htmlFor="email">Email</label>
+                    <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
 
-                <button type="submit">Enviar orden</button>
-            </form>
+                    <button type="submit" className="submit">Enviar orden</button>
+                </form>
+            </div>
         </div>
     )
 }
